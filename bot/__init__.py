@@ -1,0 +1,1 @@
+"""Telegram vocabulary trainer."""

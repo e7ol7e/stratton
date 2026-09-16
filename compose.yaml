@@ -1,0 +1,28 @@
+name: vocabulary-bot
+
+services:
+  bot:
+    build:
+      context: .
+    restart: unless-stopped
+    init: true
+    stop_grace_period: 30s
+    environment:
+      BOT_TOKEN: ${BOT_TOKEN:?Set BOT_TOKEN in .env}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      DATABASE_PATH: /app/data/vocabulary.sqlite3
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
