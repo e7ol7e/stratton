@@ -2,6 +2,8 @@
 
 Telegram-бот на Python 3.10+ и aiogram 3.x. Работает в личных сообщениях через long polling.
 
+**Попробовать бота:** [@stratton_words_bot](https://t.me/stratton_words_bot) — откройте в Telegram и нажмите «Старт».
+
 ## Запуск
 
 1. Создайте бота в Telegram через @BotFather и получите токен.
