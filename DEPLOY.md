@@ -26,10 +26,10 @@ The service restarts after failures and host reboots while Docker is running, un
 ## Move to a Linux VPS
 
 1. Install [Docker Engine and the Compose plugin](https://docs.docker.com/engine/install/) on the VPS and enable Docker at boot (`sudo systemctl enable --now docker` on systemd hosts).
-2. Give the VPS access to the private GitHub repository (for example, a read-only SSH deploy key), then clone it into a directory owned by your SSH user:
+2. Clone the public GitHub repository into a directory owned by your SSH user (no GitHub credentials required):
 
    ```sh
-   git clone git@github.com:e7ol7e/stratton.git
+   git clone https://github.com/e7ol7e/stratton.git
    cd stratton
    ```
 3. Stop the old bot before copying its database. For Compose, use `docker compose down`; for a terminal process, press Ctrl+C and wait for it to exit. This prevents overlapping polling and writes during the transfer.
